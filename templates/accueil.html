@@ -1,0 +1,23 @@
+{% extends 'layout.html' %}
+
+{% block titre %}
+    Accueil
+{% endblock %}
+
+{% block body %}
+<header>
+	<ul>
+		<li><a href={{url_for('connexion')}}>Se connecter</a></li>
+	</ul>
+</header>
+
+    <h1>Accueil</h1>
+    <p>Bienvenue sur l'accueil !</p>
+
+    <h2>Voici la liste des sites :</h2>
+    <ul>
+        {% for website in websites %}
+            <li>{{ website.0 }} = {{ website.1 }}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

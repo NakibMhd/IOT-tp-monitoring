@@ -1,0 +1,16 @@
+{% extends 'layout.html' %}
+
+{% block titre %}
+    Say page
+{% endblock %}
+
+{% block body %}
+<h1>Ajouter un site à monitorer</h1>
+    <form action="{{ url_for('ajouter') }}" method="GET">
+        <input name="formulaire_ajouter" type="text" placeholder="https://Nakib.exemple.fr" /><button type="submit"> Ajouter le site</button>
+    </form>
+
+    {% if formulaire_ajouter %}
+        Vous avez bien ajouter le site {{ formulaire_ajouter }}
+    {% endif %}
+{% endblock %}

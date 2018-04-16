@@ -1,0 +1,39 @@
+{% extends 'layout.html' %}
+
+{% block titre %}
+    Administration
+{% endblock %}
+
+{% block body %}
+<header><a href="{{ url_for('deconnexion') }}">Déconnexion</a></header>
+    <h1>Administration</h1>
+    <p>Bienvenue sur l'administration !</p>
+    <a href="{{ url_for('formulaire_ajouter') }}">Ajouter un site</a>
+    <h2>Voici la liste des sites :</h2>
+    <table>
+    	<thead>
+    		<tr>
+    			<th>
+    				<h2>#</h2>
+    			</th>
+    			<th>
+    				<h2>URL</h2>
+    			</th>
+    			<th>
+    				<h2>Action</h2>
+    			</th>
+    		</tr>
+    	</thead>
+    	<tbody>
+    	{% for website in websites %}
+            <tr>
+            	<td>{{ website.id }}</td>
+            	<td>{{ website.0 }} = {{ website.1 }}</td>
+            	<td><a href="#">Modifier </a><span>, </span><a href="{{ url_for('supprimer') }}">Supprimer </a></td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+ 
+{% endblock %}
